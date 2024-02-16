@@ -1,33 +1,13 @@
 
 
+<!-- login -->
 
+<app-navbar></app-navbar>
 
+<div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="login.component.css">
+  <link rel="stylesheet" href="login.component.css">
 
-    <style>
-.back-arrow {
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    font-weight: bold;
-    color: #06A67E;
-    font-size: 28px;
-    text-decoration: none;
-}
-    </style>
-</head>
-<body>
-
-  <app-navbar> </app-navbar>
-
-    <a href="" class="back-arrow">&#8592; Back Home</a>
     <div class="login-wrapper">
     <div class="login-container">
 
@@ -43,13 +23,15 @@
 
            </div>
         </div>
-        <form   [formGroup]="loginForm" (ngSubmit)="loginUser()"  class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="login-form">
             <h1>Login</h1>
-            <p id="success-message"></p>
+            <input type="text" formControlName="email" id="email" placeholder="Email" name="email" >
+            <div *ngIf="loginForm.get('email')?.invalid && !loginForm.get('email')?.touched" class="tex-sm text-red-500 mt-[3px]">This is Required</div><br>
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="tex-sm text-red-500 mt-[3px]">Invalid Format</div>
 
-            <input type="text" id="email" placeholder="Email" name="email" ngModel>
             <p id="email-error"></p>
-            <input type="password" id="password" placeholder="Password" name="password" ngModel required autocomplete="on">
+            <input type="password" formControlName="password" id="password" placeholder="Password" name="password"  required autocomplete="on">
+            <div *ngIf="loginForm.get('location')?.invalid && loginForm.get('location')?.touched" class="tex-sm text-red-500 mt-[3px]">Please Input Password!!!</div>
             <div class="reset">
                 <div class="rem-me">
                 </div>
@@ -60,9 +42,6 @@
     </div>
 </div>
 
+</div>
 
-<script src="../../dist/pages/login.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+
