@@ -1,0 +1,68 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.component.css">
+
+    <style>
+.back-arrow {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    font-weight: bold;
+    color: #06A67E;
+    font-size: 28px;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+
+  <app-navbar> </app-navbar>
+
+    <a href="" class="back-arrow">&#8592; Back Home</a>
+    <div class="login-wrapper">
+    <div class="login-container">
+
+        <div class="login-image">
+            <h3>Welcome Back!</h3>
+            <p>To keep conected with us please login into your account. </p>
+           <div class="bottom">
+               <p>Don't have an account?
+                   <br>
+                   SIGN UP for free below.
+               </p>
+               <button type="submit" id="sign-up-btn">SIGN UP</button>
+
+           </div>
+        </div>
+        <form   [formGroup]="loginForm" (ngSubmit)="loginUser()"  class="login-form">
+            <h1>Login</h1>
+            <p id="success-message"></p>
+
+            <input type="text" id="email" placeholder="Email" name="email" ngModel>
+            <p id="email-error"></p>
+            <input type="password" id="password" placeholder="Password" name="password" ngModel required autocomplete="on">
+            <div class="reset">
+                <div class="rem-me">
+                </div>
+                <a href="">Forgot password</a>
+            </div>
+            <button type="submit" id="login-btn">Login</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="../../dist/pages/login.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
